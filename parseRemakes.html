@@ -1,0 +1,57 @@
+<html>
+<!--I confirm that this coursework submission is entirely my own work except where explicitly stated otherwise-->
+<head>
+  <title> Film Queries </title>
+  <script src="remakeFunctions.js"></script>
+</head>
+<body background="backgroundImage.jpg">
+	<h3> This form will return remake and their original films based on the values you supply within the query options</h3>
+	<form>
+		<!-- The fieldset is used to create logical sections on the page i.e. sections for input fields, sort buttons etc -->
+		<fieldset style="width: 700px">
+		<legend>Query Options:</legend>
+		<!--I use a table to align the text and input fields -->
+		<table>
+			<tr>
+			<td align="right">Remake Title:</td>
+			<td align="left"><input type="text" id="remakeTitle" /></td>
+			<td> <input name="sameName_checkbox" id="sameName_checkbox_id" type="checkbox" onclick="checkRemake(remakeTitle.value)"> </td>
+			<td align="left">Only return remakes with same name as original?</td>
+			</tr>
+			<tr>
+			<td align="right">Year of Remake:</td>
+			<td align="left"><input type="text" id="remakeYear" /></td>
+			</tr>
+			<tr>
+			<td align="right">Fraction/Closeness to Original:</td>
+			<td align="left"><input type="text" id="remakeFraction" /></td>
+			</tr>
+			</tr>
+			<tr>
+			<td align="right">Original Title:</td>
+			<td align="left"><input type="text" id="originalTitle" /></td>
+			</tr>
+			</tr>
+			<tr>
+			<td align="right">Original Release Year:</td>
+			<td align="left"><input type="text" id="originalYear" /></td>
+			</tr>
+		</table>
+		<input type="button" value="Submit Query" onClick="displayFormattedResults(remakeTitle.value, remakeYear.value, remakeFraction.value, originalTitle.value, originalYear.value)"/>
+		<input type="button" value="Clear Results" onClick="clearResults()"/>
+		<input type="button" value="Clear Criteria" onClick="clearCriteria(remakeTitle, remakeYear, remakeFraction, originalTitle, originalYear)"/><br>
+		<br>
+		<fieldset style="width: 600px">
+		<legend>Sort By (you need to resubmit for new sort by criteria to be applied) :</legend>
+		<input type="radio" name="sortByValue" value="rtitle" checked="true">Remake Title
+		<input type="radio" name="sortByValue" value="ryear">Remake Year
+		<input type="radio" name="sortByValue" value="fraction">Fraction
+		<input type="radio" name="sortByValue" value="stitle">Original Title
+		<input type="radio" name="sortByValue" value="syear">Original Year
+		</fieldset>
+		</fieldset>
+	</form>
+	<!-- remakesOutput is an empty div segment into which generated results will be appended -->
+	<div id="remakesOutput">
+	</div>
+</html>
